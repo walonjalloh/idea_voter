@@ -17,12 +17,12 @@ function Page() {
     })
   }
 
-  const hanldeDelete = ()=>{
-    setFormData('')
-    setCards([])
-  }
+  // const hanldeDelete = ()=>{
+  //   const card = cards.filter((card) => card.index !== index)
+  //   setCards(card)
+  // }
 
-  const  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const card = {
       title: event.target.title.value,
@@ -39,7 +39,7 @@ function Page() {
     <div>
       <Form handleSubmit={handleSubmit} handleChange={handleChange}/>
       {cards.map((card, index) => (
-        <Display key={index} title={card.title} description={card.description} delete_idea={hanldeDelete}/>
+        <Display key={index} title={card.title} description={card.description} />
       ))}
       
     </div>
