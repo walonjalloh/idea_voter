@@ -22,8 +22,9 @@ function Vote() {
 
   return (
     <div>
-      <button onClick={()=>(handlelike())}>Like {like}</button>
-      <button onClick={()=>(handleDislike())}>Dislike {dislike}</button>
+      <button onClick={()=>(handlelike())}>Like: {like}</button>
+      <button onClick={()=>(handleReset())}>Reset</button>
+      <button onClick={()=>(handleDislike())}>Dislike: {dislike}</button>
     </div>
   )
 }
