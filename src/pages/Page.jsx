@@ -8,20 +8,37 @@ function Page() {
     description: ''
   });
 
+  const [cards, setCards] = useState([]);
+
+
+  const handleChange = (event)=> {
+    setFormData({
+      ...formData,[event.target.name]: event.target.value,
+    })
+  }
+
   const  handleSubmit = (event) => {
     event.preventDefault();
-    setFormData({
+    const card = {
       title: event.target.title.value,
       description: event.target.description.value,
+    };
+    setCards([...cards, card]);
+    setFormData({
+      title:'',
+      description: ''
     });
   }
 
   return (
     <div>
-      <Form handleSubmit={handleSubmit}/>
-      <Display title={formData.title} description={formData.description}/>
+      <Form handleSubmit={handleSubmit} handleChange={handleChange}/>
+      {cards.map((card, index) => (
+        <Display key={index} title={card.title} description={card.description}/>
+      ))}
+      
     </div>
   )
-}
+} 
 
 export default Page
