@@ -1,8 +1,12 @@
+import { Display, Form } from "./component/component"
 
 
 function Page() {
   return (
-    <div>Page</div>
+    <div>
+      <Form/>
+      <Display/>
+    </div>
   )
 }
 
