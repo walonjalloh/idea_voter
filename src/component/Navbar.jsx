@@ -2,7 +2,12 @@
 
 function Navbar() {
   return (
-    <div>Navbar</div>
+    <header>
+      <nav className="flex justify-between">
+        <div>logo</div>
+        <div>button</div>
+      </nav>
+    </header>
   )
 }
 

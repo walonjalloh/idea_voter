@@ -1,8 +1,12 @@
 
 
 function Footer() {
+
+  const year = new Date().getFullYear()
   return (
-    <div>Footer</div>
+    <footer className="flex justify-center ">
+      <p>All right reserved Walon &copy;{year}</p>
+    </footer>
   )
 }
 
