@@ -17,6 +17,11 @@ function Page() {
     })
   }
 
+  const hanldeDelete = ()=>{
+    setFormData('')
+    setCards([])
+  }
+
   const  handleSubmit = (event) => {
     event.preventDefault();
     const card = {
@@ -34,7 +39,7 @@ function Page() {
     <div>
       <Form handleSubmit={handleSubmit} handleChange={handleChange}/>
       {cards.map((card, index) => (
-        <Display key={index} title={card.title} description={card.description}/>
+        <Display key={index} title={card.title} description={card.description} delete_idea={hanldeDelete}/>
       ))}
       
     </div>

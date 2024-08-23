@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-function Vote() {
+function Vote( {delete_idea}) {
   
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
@@ -21,10 +21,11 @@ function Vote() {
 
 
   return (
-    <div>
-      <button className="border-2 border-black px-3 mx-2 rounded-full" onClick={()=>(handlelike())}>Like: {like}</button>
-      <button className="border-2 border-black px-3 mx-2 rounded-full" onClick={()=>(handleReset())}>Reset</button>
-      <button className="border-2 border-black px-3 mx-2 rounded-full" onClick={()=>(handleDislike())}>Dislike: {dislike}</button>
+    <div className="flex  justify-between sm:text-[5px] md:text-2xl">
+      <button className="border-2 border-black  mx-1 px-1 md:px-3 md:mx-2 rounded-full" onClick={()=>(handlelike())}>Like: {like}</button>
+      <button className="border-2 border-black mx-1 px-1 md:px-3 md:mx-2 rounded-full" onClick={()=>(handleReset())}>Reset</button>
+      <button className="border-2 border-black mx-1 px-1 md:px-3 md:mx-2 rounded-full" onClick={delete_idea}>Delete Idea</button>
+      <button className="border-2 border-black mx-1 px-1 md:px-3 md:mx-2 rounded-full" onClick={()=>(handleDislike())}>Dislike: {dislike}</button>
     </div>
   )
 }
