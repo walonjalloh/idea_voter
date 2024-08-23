@@ -1,4 +1,4 @@
-import { Display, Form } from "./component/component"
+import { Display, Form } from "../component/component"
 
 
 function Page() {

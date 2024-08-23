@@ -1,16 +1,18 @@
 import { logo } from "../assets/assets"
-import Button from "./Button"
+
 
 
 function Navbar() {
   return (
-    <header className="bg-gradient-to-r from-red-300 to-blue-400">
-      <nav className="flex justify-between mx-16">
+    <header className="0">
+      <nav className="flex justify-between mx-2">
         <div className="flex justify-center  items-center">
-          <img src={logo} alt="logo" className="h-[100px] w-[100px] bg-inherit mx-2" />
-          <p className="text-2xl font-bold ">Idea Voter</p>
+          <img src={logo} alt="logo" className="w-12 h-12 md:h-[100px] md:w-[100px] bg-inherit mx-2" />
+          <p className="md:text-2xl font-bold ">Idea Voter</p>
         </div>
-        <div className="flex justify-center items-center"><Button/></div>
+        <div className="flex justify-center items-center">
+          <button className="border border-black rounded-full px-6 font-bold">Add Idea</button>
+        </div>
       </nav>
     </header>
   )
