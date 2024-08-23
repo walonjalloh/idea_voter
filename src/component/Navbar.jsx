@@ -4,7 +4,7 @@ import { logo } from "../assets/assets"
 
 function Navbar() {
   return (
-    <header className="0">
+    <header className="mx-10">
       <nav className="flex justify-between mx-2">
         <div className="flex justify-center  items-center">
           <img src={logo} alt="logo" className="w-12 h-12 md:h-[100px] md:w-[100px] bg-inherit mx-2" />
