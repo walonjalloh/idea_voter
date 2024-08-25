@@ -19,15 +19,15 @@ function Vote({ save }) {
     save()
   }
 
-  function handleDislike(){
-    if (like >= 1){
-      setLike(like - 1)
-    }else{
-      setLike(0)
-    }
-    setDislike(dislike + 1);
-    save()
-  }
+  // function handleDislike(){
+  //   if (like >= 1){
+  //     setLike(like - 1)
+  //   }else{
+  //     setLike(0)
+  //   }
+  //   setDislike(dislike + 1);
+  //   save()
+  // }
 
  
 
@@ -35,7 +35,7 @@ function Vote({ save }) {
   return (
     <div className="flex  justify-between sm:text-[10px] md:text-3xl">
       <button className="border-2 border-black  mx-2 px-2 md:px-4 md:mx-4 rounded-full" onClick={()=>(handlelike())}>Like: {like}</button>
-      <button className="border-2 border-black mx-2 px-2 md:px-4 md:mx-4 rounded-full" onClick={()=>(handleDislike())}>Dislike: {dislike}</button>
+      {/* <button className="border-2 border-black mx-2 px-2 md:px-4 md:mx-4 rounded-full" onClick={()=>(handleDislike())}>Dislike: {dislike}</button> */}
     </div>
   )
 }
