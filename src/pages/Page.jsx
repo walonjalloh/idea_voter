@@ -10,20 +10,17 @@ function Page({ showform }) {
   });
 
   const [cards, setCards] = useState([]);
-  const [isDataDisplayed, setIsDataDisplayed] = useState(false);
-
-
-
+  
   useEffect(() => {
-    const storedData = localStorage.getItem('formData');
-    if (storedData) {
-      setFormData(JSON.parse(storedData));
-      setIsDataDisplayed(true);
+    const storedIdeas = localStorage.getItem('cards');
+    if (storedIdeas) {
+      setCards(JSON.parse(storedIdeas));
     }
   }, []);
 
-
-
+  useEffect(() => {
+    localStorage.setItem('cards', JSON.stringify(cards));
+  }, [cards]);
 
   const handleChange = (event)=> {
     setFormData({
@@ -40,19 +37,15 @@ function Page({ showform }) {
       description: event.target.description.value,
     };
     setCards([...cards, card]);
-    setFormData({
-      title:'',
-      description: ''
-    });
-    localStorage.setItem('formData', JSON.stringify(formData));
-    setIsDataDisplayed(true)
+    event.target.reset();
+  
   }
 
   return (
     <div>
       <Form handleSubmit={handleSubmit} handleChange={handleChange} showform={showform}/>
       {cards.map((card, index) => (
-        <Display key={index} title={card.title} description={card.description} isDataDisplayed={isDataDisplayed}/>
+        <Display key={index}  card={card}/>
       ))}
       
     </div>
