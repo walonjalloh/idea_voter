@@ -4,6 +4,7 @@ import Page from '../pages/Page';
 import Form from './Form';
 import Display from './Display';
 import Vote from './Vote';
+import Hero from './Hero';
 
 export {
     Footer,
@@ -11,5 +12,6 @@ export {
     Page,
     Form,
     Display,
-    Vote
+    Vote,
+    Hero
 };

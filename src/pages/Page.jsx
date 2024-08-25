@@ -1,7 +1,8 @@
 import { Display, Form } from "../component/component"
-import { useState } from "react";
+import { useState} from "react";
+import PropTypes from 'prop-types';
 
-function Page() {
+function Page({ showform }) {
 
   const [formData, setFormData] = useState({
     title: '',
@@ -9,7 +10,18 @@ function Page() {
   });
 
   const [cards, setCards] = useState([]);
+  
+  function save(){
+    localStorage.setItem('ideas', JSON.stringify(cards));
+  }
+  // useEffect(() => {
+  //   const savedCard = JSON.parse(localStorage.getItem('cards')) || [];
+  //   setCards(savedCard);
+  // },[])
 
+  // useEffect(() => {
+  //   localStorage.setItem('cards', JSON.stringify(cards));
+  // }, [cards]);
 
   const handleChange = (event)=> {
     setFormData({
@@ -17,10 +29,7 @@ function Page() {
     })
   }
 
-  // const hanldeDelete = ()=>{
-  //   const card = cards.filter((card) => card.index !== index)
-  //   setCards(card)
-  // }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,17 +38,16 @@ function Page() {
       description: event.target.description.value,
     };
     setCards([...cards, card]);
-    setFormData({
-      title:'',
-      description: ''
-    });
+  
+    event.target.reset();
+  
   }
 
   return (
     <div>
-      <Form handleSubmit={handleSubmit} handleChange={handleChange}/>
+      <Form handleSubmit={handleSubmit} handleChange={handleChange} showform={showform}/>
       {cards.map((card, index) => (
-        <Display key={index} title={card.title} description={card.description} />
+        <Display key={index}  card={card} save={save}/>
       ))}
       
     </div>
@@ -47,3 +55,7 @@ function Page() {
 } 
 
 export default Page
+
+Page.propTypes = {
+  showform : PropTypes.bool.isRequired
+}
