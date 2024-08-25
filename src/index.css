@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 body {
-    background: slategray;
-    color: black;
+    background: hsl(0, 0%, 50%);
 }

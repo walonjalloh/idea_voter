@@ -1,10 +1,11 @@
-import { Footer, Navbar, Page } from "./component/component"
+import { Footer, Hero, Navbar, Page } from "./component/component"
 
 
 function App() {
   return (
-    <div className=" mx-auto ">
+    <div className="bg-white">
       <Navbar/>
+      <Hero/>
       <Page/>
       <Footer/>
     </div>

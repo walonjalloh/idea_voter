@@ -8,9 +8,11 @@ function Vote() {
 
   function handlelike(){
     setLike(like + 1);
+    setDislike(dislike -1);
   }
 
   function handleDislike(){
+    setLike(like - 1);
     setDislike(dislike + 1);
   }
 
