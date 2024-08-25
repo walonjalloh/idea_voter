@@ -7,9 +7,9 @@ function Display({ title, description, isDataDisplayed}) {
       {isDataDisplayed && (
          <div className="flex flex-col justify-center items-center">
          <label className="text-2xl font-bold ">Title</label>
-         <h2 className="font-normal font-mono text-2xl my-2 ">{title}</h2>
+         <h2 className="font-normal font-mono text-2xl my-2 text-center">{title}</h2>
          <label className="text-2xl font-bold">Description</label>
-         <p className="font-normal font-mono text-3xl ">{description}</p>
+         <p className="font-normal font-mono text-3xl text-center ">{description}</p>
        </div>
       )}
      <div className="flex items-center justify-center my-2">
