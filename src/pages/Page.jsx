@@ -75,5 +75,5 @@ export default Page
 
 Page.propTypes = {
   showform : PropTypes.bool.isRequired,
-  handleShow: PropTypes.func
+  handleShow: PropTypes.bool
 }
