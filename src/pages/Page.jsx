@@ -2,12 +2,14 @@ import { Display, Form, Show } from "../component/component"
 import { useState} from "react";
 import PropTypes from 'prop-types';
 
-function Page({ showform }) {
+function Page({ showform, handleShow }) {
 
   const [formData, setFormData] = useState({
     title : '',
     description : ''
   })
+
+  
 
   const [cards, setCards] = useState([{
     key : 1,
@@ -55,10 +57,15 @@ function Page({ showform }) {
   return (
     <div>
       <Form handleSubmit={handleSubmit} handleChange={handleChange} showform={showform}/>
-      <Show/>
-      {cards.map((card, index) => (
-        <Display key={index}  card={card} save={save}/>
-      ))}
+      {handleShow && (
+        <>
+        <Show handleIdea={handleShow}/>
+        {cards.map((card, index) => (
+          <Display key={index}  card={card} save={save}/>
+        ))}
+      </>
+      )}
+      
       
     </div>
   )
@@ -67,5 +74,6 @@ function Page({ showform }) {
 export default Page
 
 Page.propTypes = {
-  showform : PropTypes.bool.isRequired
+  showform : PropTypes.bool.isRequired,
+  handleShow: PropTypes.func
 }
