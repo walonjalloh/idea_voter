@@ -1,7 +1,7 @@
 import Vote from "./Vote"
 import PropTypes from 'prop-types'
 
-function Display({ card }) {
+function Display({ card, save }) {
 
   
 
@@ -16,7 +16,7 @@ function Display({ card }) {
        </div>
       
      <div className="flex items-center justify-center my-2">
-         <Vote/>
+         <Vote save={save}/>
        </div>
     </div>
   )
@@ -25,5 +25,6 @@ function Display({ card }) {
 export default Display
 
 Display.propTypes = {
-  card : PropTypes.string
+  card : PropTypes.object,
+  save : PropTypes.func
 }

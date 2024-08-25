@@ -21,7 +21,7 @@ function Form({ handleSubmit, handleChange, showform}) {
 export default Form
 
 Form.propTypes = {
-  handleSubmit : PropTypes.string,
-  handleChange : PropTypes.string,
-  showform : PropTypes.string
+  handleSubmit : PropTypes.func,
+  handleChange : PropTypes.func,
+  showform : PropTypes.bool
 }

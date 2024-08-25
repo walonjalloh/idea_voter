@@ -19,5 +19,5 @@ function Hero({handleForm}) {
 export default Hero
 
 Hero.propTypes = {
-  handleForm : PropTypes.string.isRequired, 
+  handleForm : PropTypes.func.isRequired, 
 }

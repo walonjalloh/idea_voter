@@ -1,7 +1,9 @@
 import { useState } from "react"
+import PropTypes from 'prop-types'
 
 
-function Vote() {
+
+function Vote({ save }) {
   
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
@@ -13,6 +15,8 @@ function Vote() {
     }else{
       setDislike(0)
     };
+
+    save()
   }
 
   function handleDislike(){
@@ -22,6 +26,7 @@ function Vote() {
       setLike(0)
     }
     setDislike(dislike + 1);
+    save()
   }
 
  
@@ -36,3 +41,7 @@ function Vote() {
 }
 
 export default Vote
+
+Vote.propTypes = {
+  save : PropTypes.func
+}

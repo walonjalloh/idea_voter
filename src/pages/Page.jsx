@@ -1,5 +1,5 @@
 import { Display, Form } from "../component/component"
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import PropTypes from 'prop-types';
 
 function Page({ showform }) {
@@ -11,16 +11,17 @@ function Page({ showform }) {
 
   const [cards, setCards] = useState([]);
   
-  useEffect(() => {
-    const storedIdeas = localStorage.getItem('cards');
-    if (storedIdeas) {
-      setCards(JSON.parse(storedIdeas));
-    }
-  }, []);
+  function save(){
+    localStorage.setItem('ideas', JSON.stringify(cards));
+  }
+  // useEffect(() => {
+  //   const savedCard = JSON.parse(localStorage.getItem('cards')) || [];
+  //   setCards(savedCard);
+  // },[])
 
-  useEffect(() => {
-    localStorage.setItem('cards', JSON.stringify(cards));
-  }, [cards]);
+  // useEffect(() => {
+  //   localStorage.setItem('cards', JSON.stringify(cards));
+  // }, [cards]);
 
   const handleChange = (event)=> {
     setFormData({
@@ -37,6 +38,7 @@ function Page({ showform }) {
       description: event.target.description.value,
     };
     setCards([...cards, card]);
+  
     event.target.reset();
   
   }
@@ -45,7 +47,7 @@ function Page({ showform }) {
     <div>
       <Form handleSubmit={handleSubmit} handleChange={handleChange} showform={showform}/>
       {cards.map((card, index) => (
-        <Display key={index}  card={card}/>
+        <Display key={index}  card={card} save={save}/>
       ))}
       
     </div>
@@ -55,5 +57,5 @@ function Page({ showform }) {
 export default Page
 
 Page.propTypes = {
-  showform : PropTypes.string.isRequired
+  showform : PropTypes.bool.isRequired
 }
