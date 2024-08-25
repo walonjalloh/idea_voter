@@ -5,6 +5,7 @@ import Form from './Form';
 import Display from './Display';
 import Vote from './Vote';
 import Hero from './Hero';
+import Show from './Show';
 
 export {
     Footer,
@@ -13,5 +14,6 @@ export {
     Form,
     Display,
     Vote,
-    Hero
+    Hero,
+    Show
 };

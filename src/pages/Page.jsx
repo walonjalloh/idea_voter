@@ -1,15 +1,24 @@
-import { Display, Form } from "../component/component"
+import { Display, Form, Show } from "../component/component"
 import { useState} from "react";
 import PropTypes from 'prop-types';
 
 function Page({ showform }) {
 
   const [formData, setFormData] = useState({
-    title: '',
-    description: ''
-  });
+    title : '',
+    description : ''
+  })
 
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState([{
+    key : 1,
+    title : 'Photo Gallery Website',
+    description : 'A website where you can upload a photo and other can like or dislike it'
+  },{
+    key: 2,
+    title : 'Event Planner',
+    description: "An app where you can plan an event"
+  }]
+  );
   
   function save(){
     localStorage.setItem('ideas', JSON.stringify(cards));
@@ -46,6 +55,7 @@ function Page({ showform }) {
   return (
     <div>
       <Form handleSubmit={handleSubmit} handleChange={handleChange} showform={showform}/>
+      <Show/>
       {cards.map((card, index) => (
         <Display key={index}  card={card} save={save}/>
       ))}
