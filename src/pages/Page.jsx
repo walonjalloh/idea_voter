@@ -1,7 +1,7 @@
 import { Display, Form } from "../component/component"
 import { useState } from "react";
 
-function Page() {
+function Page({ showform }) {
 
   const [formData, setFormData] = useState({
     title: '',
@@ -37,7 +37,7 @@ function Page() {
 
   return (
     <div>
-      <Form handleSubmit={handleSubmit} handleChange={handleChange}/>
+      <Form handleSubmit={handleSubmit} handleChange={handleChange} showform={showform}/>
       {cards.map((card, index) => (
         <Display key={index} title={card.title} description={card.description} />
       ))}
