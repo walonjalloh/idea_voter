@@ -1,15 +1,10 @@
-
+import PropTypes from 'prop-types'
 
 function Form({ handleSubmit, handleChange, showform}) {
-
- 
-  
-
-
   return (
     <div>
     {showform && (
-      <form onSubmit={handleSubmit} className="flex my-12 flex-1 justify-center border-[4px] bg-white border-black flex-col mx-5 py-4 rounded-xl">
+      <form  action="" onSubmit={handleSubmit} className="flex my-12 flex-1 justify-center border-[4px] bg-white border-black flex-col mx-5 py-4 rounded-xl">
       <label className="text-center font-bold text-2xl text-pretty text-black">Add Idea</label>
       <label htmlFor="title" className="text-2xl font-bold mx-2 text-black ">Title</label>
       <input type="text" name='title' onChange={handleChange} placeholder="Title" required className="border-2 border-black mx-2 bg-inherit rounded-lg py-2 px-2 font-semibold my-1" />
@@ -24,3 +19,9 @@ function Form({ handleSubmit, handleChange, showform}) {
 }
 
 export default Form
+
+Form.propTypes = {
+  handleSubmit : PropTypes.string,
+  handleChange : PropTypes.string,
+  showform : PropTypes.string
+}
