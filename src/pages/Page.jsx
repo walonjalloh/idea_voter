@@ -21,18 +21,8 @@ function Page({ showform, handleShow }) {
     description: "An app where you can plan an event"
   }]
   );
-  
-  function save(){
-    localStorage.setItem('ideas', JSON.stringify(cards));
-  }
-  // useEffect(() => {
-  //   const savedCard = JSON.parse(localStorage.getItem('cards')) || [];
-  //   setCards(savedCard);
-  // },[])
 
-  // useEffect(() => {
-  //   localStorage.setItem('cards', JSON.stringify(cards));
-  // }, [cards]);
+
 
   const handleChange = (event)=> {
     setFormData({
@@ -49,7 +39,7 @@ function Page({ showform, handleShow }) {
       description: event.target.description.value,
     };
     setCards([...cards, card]);
-  
+    localStorage.setItem('cards', JSON.stringify(cards));
     event.target.reset();
   
   }
@@ -61,7 +51,7 @@ function Page({ showform, handleShow }) {
         <>
         <Show handleIdea={handleShow}/>
         {cards.map((card, index) => (
-          <Display key={index}  card={card} save={save}/>
+          <Display key={index}  card={card}/>
         ))}
       </>
       )}
