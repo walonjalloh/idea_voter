@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "A backend for my idea voter application",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -11,6 +10,7 @@
   },
   "author": "Mohamed Lamin Walon-Jalloh",
   "license": "ISC",
+  "description": "A server for my idea vote application",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
