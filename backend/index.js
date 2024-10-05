@@ -143,7 +143,7 @@ app.post('/user/signin', async(req,res) => {
         if(!username || !password){
             return console.log('All field are required')
         }
-        
+
         const user = User.findOne({ username })
         if(!user){
             return res.status(500).json({message:"Login failed"})
@@ -154,7 +154,7 @@ app.post('/user/signin', async(req,res) => {
             return res.status(500).json({message: 'Login failed'})
         }
         
-        const token = jwt.sign({_id:user_id.toString()},process.env.JWT_SECRET)
+        const token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET)
         const userResponse = user.toObject()
         delete userResponse.password
         res.status(200).json({user: userResponse,token})
