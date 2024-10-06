@@ -144,7 +144,7 @@ app.post('/user/signin', async(req,res) => {
             return console.log('All field are required')
         }
 
-        const user = User.findOne({ username })
+        const user = await User.findOne({ username })
         if(!user){
             return res.status(500).json({message:"Login failed"})
         }
