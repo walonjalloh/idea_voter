@@ -10,14 +10,14 @@ interface Idea {
 }
 
 const ViewIdea = () => {
-  const [ideas, setIdeas] = useState<Idea[]>([]); // Use plural for ideas
+  const [ideas, setIdeas] = useState<Idea[]>([]); 
   const url = 'http://localhost:3500/ideas';
 
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(url);
-        setIdeas(response.data); // Set data directly (assuming correct API response format)
+        setIdeas(response.data); 
       } catch (error) {
         console.error(`Error fetching data: ${error}`);
       }
@@ -26,13 +26,13 @@ const ViewIdea = () => {
     getData();
   }, []);
 
-  const handleVote = async (id: string) => { // Handle vote by ID
+  const handleVote = async (id: string) => { 
     try {
-      const updatedIdeaResponse = await axios.put(`${url}/${id}`, { vote: 1 }); // Assuming vote update logic on server
-      const updatedIdea = updatedIdeaResponse.data;
+      const updatedIdeaResponse = await axios.put(`${url}/${id}`, { vote: 1 }); 
+      const updatedIdea = updatedIdeaResponse.data
       setIdeas((prevIdeas) =>
         prevIdeas.map((idea) => (idea._id === id ? updatedIdea : idea))
-      ); // Update local state with updated vote count
+      );
     } catch (error) {
       console.error(`Error updating vote: ${error}`);
     }

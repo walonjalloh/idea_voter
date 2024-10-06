@@ -1,4 +1,4 @@
-const allowedOrigins = ['http://localhost:5173', 'https://localhost:3000']
+const allowedOrigins = ['http://localhost:5173', 'https://localhost:3000','https://idea-voter.vercel.app/']
 
 const corsOption = {
     origin : (origin,callback) => {
