@@ -9,7 +9,7 @@ const Navbar = () => {
         setIsOpended(!isOpened)
     }
     return(
-        <header className="sticky top-0 z-50 mx-4 my-2 ">
+        <header className="sticky top-0 z-50 mx-4 py-2">
             <nav className="">
                 <div className="flex items-center justify-between w-full">
                     <Link to='/'><div className="text-2xl font-extrabold text-blue-700 shadow-2xl">Idea Voter</div></Link>
