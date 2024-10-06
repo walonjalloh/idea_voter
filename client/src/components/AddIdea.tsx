@@ -25,7 +25,7 @@ const AddIdea = () => {
       console.log(`Idea submitted successfully!`);
       setDescription('');
       setTitle('');
-      navigate('/voteidea');
+      navigate('/viewidea');
     } catch (error) {
       console.error(error);
       setDescription('');

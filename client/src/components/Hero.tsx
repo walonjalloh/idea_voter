@@ -10,7 +10,7 @@ const Hero = () => {
                 </section>
                 <main className="flex items-center justify-center gap-5 bg-home">
                     <Link to='/addidea'><button className="border-2 border-blue-600 bg-blue-600 px-6 font-bold py-2 text-white rounded-md shadow-xl ">Add Idea</button></Link>
-                    <Link to='/voteidea'><button className="border-2 border-black/30 px-4 py-2  text-black font-bold rounded-md shadow-xl ">Vote an idea</button></Link>
+                    <Link to='/viewidea'><button className="border-2 border-black/30 px-4 py-2  text-black font-bold rounded-md shadow-xl ">Vote an idea</button></Link>
                 </main>
             </div>
         </section>
