@@ -56,7 +56,7 @@ const ViewIdea = () => {
             </div>
           ))}
           {ideas.length === 0 && (
-            <p className="text-center text-gray-500 font-medium">No ideas found yet.</p>
+            <p className=" text-gray-500 font-medium text-center my-28">No ideas found yet.</p>
           )}
         </div>
       </main>

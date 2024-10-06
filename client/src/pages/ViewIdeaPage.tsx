@@ -5,7 +5,7 @@ import ViewIdea from "../components/ViewIdea"
 
 const ViewIdeaPage = () => {
     return(
-        <div>
+        <div className="bg-blue-50">
             <Navbar/>
             <ViewIdea/>
             <Footer/>
