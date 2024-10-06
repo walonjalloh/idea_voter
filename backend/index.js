@@ -7,9 +7,12 @@ import User from './models/userSchema.js'
 import Content from './models/contentSchema.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import authMiddleware from './middleware/authMiddleware.js'
 
 const PORT = 3500
 const app = express()
+
+
 
 app.use(express.json())
 

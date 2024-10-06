@@ -10,7 +10,7 @@ const corsOption = {
         }
     },
     method: ['POST','PATCH','DELETE','GET'],
-    allowedHeader: ['Content-Types','Authorizaton'],
+    allowedHeader: ['Content-Types','Authorization'],
     credential:true
 }
 

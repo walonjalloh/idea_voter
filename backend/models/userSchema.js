@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-// import bcrypt from 'bcrpyt'
+
 
 
 const Schema = mongoose.Schema
