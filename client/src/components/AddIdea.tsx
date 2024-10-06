@@ -12,7 +12,7 @@ const AddIdea = () => {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const navigate = useNavigate();
-  const url = 'http://localhost:3500/ideas';
+  const url = 'https://idea-voter-backend.vercel.app/ideas';
 
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
