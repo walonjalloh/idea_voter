@@ -139,7 +139,7 @@ app.post('/user/signup', async(req,res) => {
 })
 
 //user sigin 
-app.post('/user/signin', async(req,res) => {
+app.post('/user/signin', authMiddleware, async(req,res) => {
     const { username, password } = req.body
     try{
         //validating all the fields
