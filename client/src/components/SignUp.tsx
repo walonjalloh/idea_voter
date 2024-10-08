@@ -13,7 +13,7 @@ const SignUp = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const url = "http://localhost:3500/user/signup";
+  const url = "https://idea-voter-backend.vercel.app/user/signup";
 
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

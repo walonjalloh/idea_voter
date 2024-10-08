@@ -11,7 +11,7 @@ const Signin = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const url = "http://localhost:3500/user/signin";
+  const url = "https://idea-voter-backend.vercel.app/user/signin";
 
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

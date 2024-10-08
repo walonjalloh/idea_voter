@@ -170,7 +170,7 @@ app.post('/user/signin', async(req,res) => {
 
 
 
-
+//server startng point
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 })

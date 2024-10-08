@@ -11,7 +11,7 @@ interface Idea {
 
 const ViewIdea = () => {
   const [ideas, setIdeas] = useState<Idea[]>([]); 
-  const url = 'http://localhost:3500/ideas';
+  const url = 'https://idea-voter-backend.vercel.app/ideas';
 
   useEffect(() => {
     const getData = async () => {
