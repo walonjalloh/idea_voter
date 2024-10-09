@@ -15,6 +15,7 @@ const app = express()
 
 
 app.use(express.json())
+app.use(authMiddleware)
 
 app.use(cors(corsOptions))
 
@@ -139,7 +140,7 @@ app.post('/user/signup', async(req,res) => {
 })
 
 //user sigin 
-app.post('/user/signin', authMiddleware, async(req,res) => {
+app.post('/user/signin',async(req,res) => {
     const { username, password } = req.body
     try{
         //validating all the fields
