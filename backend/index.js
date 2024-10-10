@@ -15,7 +15,6 @@ const app = express()
 
 
 app.use(express.json())
-app.use(authMiddleware)
 
 app.use(cors(corsOptions))
 
