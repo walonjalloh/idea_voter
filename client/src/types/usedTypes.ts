@@ -13,7 +13,7 @@ interface IdeaProp {
 
 interface IdeaContextType {
     handleSubmit:(e:React.FormEvent<HTMLFormElement>)=>Promise<void>,
-    handleVote: (id:string)=>Promise<void>,
+    handleVote: (id:string | undefined)=>Promise<void>,
     description:string,
     title:string,
     setTitle:React.Dispatch<React.SetStateAction<string>>

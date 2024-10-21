@@ -49,7 +49,7 @@ export const  IdeaProvider = ({children}:IdeaProp) => {
       getData();
     }, []);
   
-    const handleVote = async (id: string):Promise<void> => { 
+    const handleVote = async (id: string | undefined):Promise<void> => { 
       try {
         const updatedIdeaResponse = await axios.put(`${getIdeaAndPost}/${id}`, { vote: 1 }); 
         const updatedIdea = updatedIdeaResponse.data
