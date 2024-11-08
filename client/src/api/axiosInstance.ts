@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const axiosInstanceUser = axios.create({
-    baseURL:'http://localhost:3800/api/user',
+    baseURL:'https://idea-voter-backend.vercel.app/api/user',
     headers: {
         "Content-Type":'application/json'
     }
 })
 
 const axiosInstanceIdea = axios.create({
-    baseURL:'http://localhost:3800/api/idea',
+    baseURL:'https://idea-voter-backend.vercel.app/api/idea',
     headers: {
         "Content-Type":'application/json'
     }
