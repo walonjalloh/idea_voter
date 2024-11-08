@@ -1,26 +1,20 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useContext } from "react";
+import AuthContext from "../context/authContext";
 import { Link } from "react-router-dom";
 
-interface Signin {
-  username: string;
-  password: string;
-}
 
 const Signin = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const url = "https://idea-voter-backend.vercel.app/user/signin";
+  const { login }  = useContext(AuthContext) || {}
+
+
 
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const data: Signin = {
-        username,
-        password,
-      };
-      await axios.post(url, data);
+      await login!(username,password);
       console.log(`Signin successful`);
       setPassword("");
       setUsername("");

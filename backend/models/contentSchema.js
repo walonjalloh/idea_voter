@@ -15,6 +15,10 @@ const contentSchema = new Schema({
         type:Number,
         default:0,
         required:true
+    },
+    author: {
+        type:String,
+        required:true
     }
 })
 

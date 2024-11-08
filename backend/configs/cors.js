@@ -1,17 +1,23 @@
-const allowedOrigins = ['http://localhost:5173', 'https://localhost:3000','https://idea-voter.vercel.app']
+import allowedOrigins from "./allowedOrigins.js";
 
-const corsOption = {
-    origin : (origin,callback) => {
-        console.log(`Origin: ${origin}`)
-        if(allowedOrigins.includes(origin)|| !origin){
+const corsOptions = {
+    origin:(origin,callback) => {
+        console.log(`Origin ${origin}`)
+        if(allowedOrigins.includes(origin) || !origin){
             callback(null,true)
         }else{
-            callback(new Error('Not allowed by CORS'))
+            callback(new Error(`Not Allowed by CORS`))
         }
     },
-    method: ['POST','PATCH','DELETE','GET'],
-    allowedHeader: ['Content-Types','Authorization'],
-    credential:true
+    method: ["POST","GET","UPDATE","DELETE"],
+    allowedHeaders : [
+        'Content-Type',
+        'Set-Cookie',
+        'Authorization',
+        'Allow-Control-Allow-Origin',
+        'Allow-Control-Allow-Credentials'
+    ],
+    credentials:true
 }
 
-export default corsOption
+export default corsOptions

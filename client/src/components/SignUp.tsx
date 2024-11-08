@@ -1,29 +1,20 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/authContext";
 
-interface Signup {
-  fullName: string;
-  username: string;
-  password: string;
-}
 
 const SignUp = () => {
-  const [fullName, setFullName] = useState<string>("");
+  const [fullname, setFullName] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const url = "https://idea-voter-backend.vercel.app/user/signup";
+  const { signup } = useContext(AuthContext) || {}
+
 
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const data: Signup = {
-        fullName,
-        username,
-        password,
-      };
-      await axios.post(url, data);
+      await signup!(fullname,username,password);
       console.log(`Signup successful`);
       setPassword("");
       setUsername("");
@@ -55,7 +46,7 @@ const SignUp = () => {
                 type="text"
                 id="fullname"
                 required
-                value={fullName}
+                value={fullname}
                 onChange={(e) => setFullName(e.target.value)}
                 className="w-full p-2 mt-1 border rounded-md shadow-sm border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
               />

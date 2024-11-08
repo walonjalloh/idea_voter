@@ -1,36 +1,51 @@
-import { createContext,useState,useEffect } from "react";
-import axios from "axios";
+import { createContext,useState,useEffect,useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Idea,IdeaProp,IdeaContextType } from "../types/usedTypes.ts";
-import { getIdeaAndPost } from "../urls/usedUrls.ts";
+import { axiosInstanceIdea } from "../api/axiosInstance";
+import AuthContext from "./authContext";
+
+
+interface Idea {
+  title:string,
+  description:string
+  _id:string
+  vote:string,
+  author:string
+}
+
+interface IdeaProp {
+  children:React.ReactNode
+}
+
+interface IdeaContextType {
+  createIdea:(title:string, description:string)=>Promise<void>,
+  handleVote: (id:string | undefined)=>Promise<void>,
+  ideas:Idea[]
+}
 
 const IdeaContext  = createContext<IdeaContextType | undefined>(undefined)
 
 export const  IdeaProvider = ({children}:IdeaProp) => {
-    const [title, setTitle] = useState<string>('');
-    const [description, setDescription] = useState<string>('');
     const [ideas, setIdeas] = useState<Idea[]>([]); 
     const navigate = useNavigate();
+    const { author }  = useContext(AuthContext) || {}
+
+    
 
 
   
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>):Promise<void> => {
-      e.preventDefault();
+    const createIdea = async (title:string,description:string):Promise<void> => {
       try {
-        const idea: Idea = {
+        const idea = {
           title,
           description,
+          author
         };
-        await axios.post(getIdeaAndPost, idea);
-        setIdeas((prevIdea)=> [...prevIdea,idea])
+        const response = await axiosInstanceIdea.post('/', idea);
+        setIdeas((prevIdea)=> [...prevIdea,response.data])
+        navigate('/viewidea')
         console.log(`Idea submitted successfully!`);
-        setDescription('');
-        setTitle('');
-        navigate('/viewidea');
       } catch (error) {
         console.error(error);
-        setDescription('');
-        setTitle('');
       }
     };
 
@@ -39,7 +54,7 @@ export const  IdeaProvider = ({children}:IdeaProp) => {
     useEffect(() => {
       const getData = async () => {
         try {
-          const response = await axios.get(getIdeaAndPost);
+          const response = await axiosInstanceIdea.get('/');
           setIdeas(response.data); 
         } catch (error) {
           console.error(`Error fetching data: ${error}`);
@@ -51,7 +66,7 @@ export const  IdeaProvider = ({children}:IdeaProp) => {
   
     const handleVote = async (id: string | undefined):Promise<void> => { 
       try {
-        const updatedIdeaResponse = await axios.put(`${getIdeaAndPost}/${id}`, { vote: 1 }); 
+        const updatedIdeaResponse = await axiosInstanceIdea.patch(`/${id}`, { vote: 1 }); 
         const updatedIdea = updatedIdeaResponse.data
         setIdeas((prevIdeas) =>
           prevIdeas.map((idea) => (idea._id === id ? updatedIdea : idea))
@@ -63,13 +78,9 @@ export const  IdeaProvider = ({children}:IdeaProp) => {
 
     return(
         <IdeaContext.Provider value= {{
-            handleSubmit,
+            createIdea,
             handleVote,
             ideas,
-            setDescription,
-            description,
-            title,
-            setTitle
         }}>
         {children}
         </IdeaContext.Provider>

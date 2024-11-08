@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-    fullName:{
+    fullname:{
         type:String,
         required:true
     },
@@ -13,6 +13,10 @@ const userSchema = new Schema({
     password:{
         type:String,
         required:true
+    },
+    refreshToken: {
+        type:String,
+        default:" "
     }
 })
 
